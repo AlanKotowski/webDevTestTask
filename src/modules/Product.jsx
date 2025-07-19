@@ -17,7 +17,9 @@ export default function Product({
 const [selected, setSelected] = useState(false)
 function selecting(){
   setSelected(!selected)
+
 }
+const switchProductCapacity = productCapacity.replace('.', ',')
   return (
     <li className="productItem">
       <img src={image} alt={productName} id='productImage'/>
@@ -26,7 +28,7 @@ function selecting(){
       </span>
       <div className='descriptionLine'>
         <p className='descriptionTitle'>Pojemność (kg):</p>
-        <p className='descriptionValue'>{productCapacity}</p>
+        <p className='descriptionValue'>{switchProductCapacity}</p>
       </div>
       <div className='descriptionLine'>
         <p className='descriptionTitle'>Wymiary (GxSxW):</p>

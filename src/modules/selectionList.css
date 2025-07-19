@@ -1,21 +1,50 @@
 #inputsContainer {
-  width: 80%;
-  margin-left: 10%;
+  position: absolute;
+  width: 70%;
+  margin-left: 50%;
+  transform: translateX(-50%);
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
+  z-index: 10;
 }
 #inputsContainerh3 {
   font-size: 18px;
 }
 #inputsContainer .selectFrame {
-  width: 90%;
+  list-style-type: none;
+  max-width: 250px;
   border: none;
   font-size: 14px;
+  display: block;
 }
-#inputsContainer .selectFrame:focus {
-  border: none;
-}
-#inputsContainer .optionFrame {
+#inputsContainer .selectFrame .optionFrame {
+  display: block;
   font-size: 14px;
-  outline: 1px solid white;
+  background-color: white;
+  width: 100%;
+  min-height: 30px;
+  text-align: left;
+  border: none;
+  margin-left: -30px;
+}
+#inputsContainer .selectFrame .optionFrame:hover {
+  background-color: rgb(199, 198, 198);
+  cursor: pointer;
+}
+#inputsContainer .showOptionFrame {
+  display: block;
+  font-size: 14px;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 250px;
+  height: 36px;
+  text-align: left;
+  border: none;
+  margin: 0 0 -10px 10px;
+}
+#inputsContainer .showOptionFrame:hover {
+  background-color: rgb(199, 198, 198);
+  cursor: pointer;
 }/*# sourceMappingURL=selectionList.css.map */
