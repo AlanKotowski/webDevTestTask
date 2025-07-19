@@ -1,0 +1,21 @@
+#inputsContainer {
+  width: 80%;
+  margin-left: 10%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+#inputsContainerh3 {
+  font-size: 18px;
+}
+#inputsContainer .selectFrame {
+  width: 90%;
+  border: none;
+  font-size: 14px;
+}
+#inputsContainer .selectFrame:focus {
+  border: none;
+}
+#inputsContainer .optionFrame {
+  font-size: 14px;
+  outline: 1px solid white;
+}/*# sourceMappingURL=selectionList.css.map */

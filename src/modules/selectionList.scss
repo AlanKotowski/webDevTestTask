@@ -1,0 +1,21 @@
+#inputsContainer {
+  width: 80%;
+  margin-left: 10%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  &h3{
+    font-size: 18px;
+  }
+  .selectFrame {
+    width: 90%;
+    border: none;
+    font-size: 14px;
+    &:focus {
+      border: none;
+    }
+}
+    .optionFrame{
+        font-size: 14px;
+        outline: 1px solid white;
+    }
+}

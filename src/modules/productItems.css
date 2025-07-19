@@ -1,0 +1,114 @@
+.products {
+  width: 90vw;
+  margin-left: 5vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin-top: 20px;
+  list-style-type: none;
+}
+.products #productImage {
+  margin-left: 50%;
+  transform: translateX(-60%);
+  margin-top: 70px;
+}
+.products .productItem {
+  margin-left: 50%;
+  transform: translateX(-50%);
+}
+.products #productName {
+  font-size: 18px;
+  width: 250px;
+  margin-bottom: 40px;
+}
+.products #functionsTitle {
+  display: inline-block;
+  margin: -18px 0px;
+}
+.products .descriptionLine {
+  display: flex;
+  font-size: 12px;
+  margin: -18px 0px;
+}
+.products .descriptionLine .descriptionTitle {
+  color: #767676;
+}
+.products .descriptionLine .descriptionValue {
+  font-weight: bold;
+}
+.products .descriptionLine #energyLabel {
+  background-color: #009949;
+  width: 37px;
+  height: 16px;
+  color: white;
+  padding-left: 5px;
+  margin-left: 10px;
+}
+.products .descriptionLine #triangle {
+  position: relative;
+  top: 12px;
+  left: -1px;
+  width: 0;
+  height: 0;
+  border-top: 8px solid transparent;
+  border-left: 5px solid #009949;
+  border-bottom: 8px solid transparent;
+}
+.products #price {
+  display: flex;
+  margin-top: 6px;
+}
+.products #price #productPriceZl {
+  font-size: 40px;
+  font-weight: bold;
+  margin-top: 0px;
+}
+.products #price #productPriceRightPanel {
+  font-weight: bold;
+  height: 40px;
+  margin: 29px 0 0 5px;
+  justify-items: center;
+}
+.products #price #productPriceRightPanel .priceGr {
+  margin: -20px 0;
+}
+.products #installments {
+  margin-top: -20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #555555;
+}
+.products .selectButton {
+  margin-left: 50%;
+  transform: translateX(-60%);
+  width: 150px;
+  height: 36px;
+  text-align: center;
+  color: white;
+  background-color: #1428A0;
+  border-radius: 50px;
+  border: none;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 2px;
+}
+.products .selectButton:hover {
+  cursor: pointer;
+}
+.products .selected {
+  background-color: black;
+}
+
+#showMore {
+  position: relative;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  color: #1428A0;
+}
+#showMore:hover {
+  cursor: pointer;
+}/*# sourceMappingURL=productItems.css.map */

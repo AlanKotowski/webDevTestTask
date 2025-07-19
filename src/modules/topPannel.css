@@ -1,0 +1,24 @@
+#selectDevice {
+  text-align: center;
+  font-size: 40px;
+}
+
+#searchBox {
+  margin-left: 50%;
+  transform: translateX(-60%);
+  font-weight: lighter;
+  border: none;
+  width: 239px;
+  font-size: 14px;
+  padding: 8px 12px;
+}
+#searchBox:focus {
+  outline: 1px solid #007AFF;
+  border-radius: 5px;
+}
+#searchBox::-moz-placeholder {
+  color: black;
+}
+#searchBox::placeholder {
+  color: black;
+}/*# sourceMappingURL=topPannel.css.map */
