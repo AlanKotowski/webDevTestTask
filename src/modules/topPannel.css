@@ -3,22 +3,32 @@
   font-size: 40px;
 }
 
-#searchBox {
-  margin-left: 50%;
-  transform: translateX(-60%);
+#searchSection {
+  width: 23vh;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+}
+#searchSection #searchBox {
   font-weight: lighter;
   border: none;
   width: 239px;
   font-size: 14px;
   padding: 8px 12px;
 }
-#searchBox:focus {
-  outline: 1px solid #007AFF;
+#searchSection #searchBox:focus {
+  outline: 1px solid #007aff;
   border-radius: 5px;
 }
-#searchBox::-moz-placeholder {
+#searchSection #searchBox::-moz-placeholder {
   color: black;
 }
-#searchBox::placeholder {
+#searchSection #searchBox::placeholder {
   color: black;
+}
+#searchSection button {
+  border: none;
+}
+#searchSection button:hover {
+  cursor: pointer;
 }/*# sourceMappingURL=topPannel.css.map */

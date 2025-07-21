@@ -1,5 +1,5 @@
 .products {
-  width: 90vw;
+  width: 90%;
   margin-left: auto;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -12,7 +12,7 @@
   }
   .productItem {
     margin-left: 50%;
-    transform: translateX(-50%)
+    transform: translateX(-50%);
   }
   #productName {
     font-size: 18px;
@@ -61,7 +61,7 @@
       margin-top: 0px;
     }
     #productPriceRightPanel {
-        font-weight: bold;
+      font-weight: bold;
       height: 40px;
       margin: 29px 0 0 5px;
       justify-items: center;
@@ -70,47 +70,30 @@
       }
     }
   }
-  #installments{
+  #installments {
     margin-top: -20px;
     font-size: 16px;
     font-weight: bold;
     color: #555555;
   }
-  .selectButton{
+  .selectButton {
     margin-left: 50%;
     transform: translateX(-60%);
     width: 150px;
     height: 36px;
     text-align: center;
     color: white;
-    background-color: #1428A0;
+    background-color: #1428a0;
     border-radius: 50px;
     border: none;
     font-size: 14px;
     font-weight: 500;
     letter-spacing: 2px;
-    &:hover{
-        cursor: pointer;
+    &:hover {
+      cursor: pointer;
     }
-}
-    .selected{
-        background-color: black;
-    }
-}
-
-#showMore{
-    position: relative;
-    margin-left: 50%;
-    transform: translateX(-50%);
-    margin-top: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: none;
-    color: #007AFF;
-    font-size: 18px;
-    font-weight: bold;
-    &:hover{
-        cursor: pointer;
-    }
+  }
+  .selected {
+    background-color: black;
+  }
 }

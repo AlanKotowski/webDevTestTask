@@ -1,6 +1,6 @@
 #inputsContainer {
   position: absolute;
-  width: 70%;
+  width: 70vh;
   margin-left: 50%;
   transform: translateX(-50%);
   display: grid;
@@ -18,10 +18,11 @@
   display: block;
 }
 #inputsContainer .selectFrame .optionFrame {
+  position: relative;
   display: block;
   font-size: 14px;
   background-color: white;
-  width: 100%;
+  width: 113%;
   min-height: 30px;
   text-align: left;
   border: none;
@@ -30,6 +31,9 @@
 #inputsContainer .selectFrame .optionFrame:hover {
   background-color: rgb(199, 198, 198);
   cursor: pointer;
+}
+#inputsContainer .selectFrame .optionFrame:focus {
+  background-color: rgb(199, 198, 198);
 }
 #inputsContainer .showOptionFrame {
   display: block;

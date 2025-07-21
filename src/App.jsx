@@ -2,99 +2,103 @@ import { productInfo } from "./modules/data.js";
 import Product from "./modules/Product.jsx";
 import TopPannel from "./modules/TopPannel.jsx";
 import SelectionList from "./modules/SelectionList.jsx";
-import { RxTriangleDown } from "react-icons/rx";
+import PaginationButton from "./modules/PaginationButton.jsx";
 import { useState } from "react";
 import "./modules/productItems.css";
 import "./App.css";
 
 function App() {
-  const [dataManipulation, setDataManipulation] = useState(productInfo);
+  // filters and sorting state
+  const [dataManipulation, setDataManipulation] = useState({
+    productFunctions: "all",
+    energyLabel: "all",
+    productCapacity: "all",
+    sorting: null,
+  });
 
-  function manipulating(option) {
-    let dataManipulated = [...productInfo];
+  // pagination state
+  const [pagination, setPagination] = useState(6);
 
-    // filtering functions
-    if (option === "Drzwi AddWash") {
-      dataManipulated = dataManipulated.filter((el) =>
-        el.productFunctions.includes("Drzwi AddWash")
-      );
-    } else if (option === "Panel AI Control") {
-      dataManipulated = dataManipulated.filter((el) =>
-        el.productFunctions.includes("Panel AI Control")
-      );
-    } else if (option === "Silnik inwerterowy") {
-      dataManipulated = dataManipulated.filter((el) =>
-        el.productFunctions.includes("Silnik inwerterowy")
-      );
-    } else if (option === "Wyświeltacz elektroniczny") {
-      dataManipulated = dataManipulated.filter((el) =>
-        el.productFunctions.includes("Wyświetlacz elektroniczny")
-      );
-    }
+  // searching state
+  const [search, setSearch] = useState('')
 
-    // filtering energy labels
-    if (option === "A") {
-      dataManipulated = dataManipulated.filter((el) => el.EnergyLabel === "A");
-    } else if (option === "B") {
-      dataManipulated = dataManipulated.filter((el) => el.EnergyLabel === "B");
-    } else if (option === "C") {
-      dataManipulated = dataManipulated.filter((el) => el.EnergyLabel === "C");
-    } else if (option === "D") {
-      dataManipulated = dataManipulated.filter((el) => el.EnergyLabel === "D");
-    } else if (option === "E") {
-      dataManipulated = dataManipulated.filter((el) => el.EnergyLabel === "E");
-    } else if (option === "F") {
-      dataManipulated = dataManipulated.filter((el) => el.EnergyLabel === "F");
-    }
-    setDataManipulation(dataManipulated);
+  // filters, sorting and searching
+  // filters 
+  const functionsFilter = (productFunctions) =>
+    setDataManipulation({ ...dataManipulation, productFunctions });
+  const energyFilter = (energyLabel) =>
+    setDataManipulation({ ...dataManipulation, energyLabel });
+  const capacityFilter = (productCapacity) =>
+    setDataManipulation({ ...dataManipulation, productCapacity });
 
-    // filtering capacity
-    if (option === "8") {
-      dataManipulated = dataManipulated.filter(
-        (el) => el.productCapacity === "8"
-      );
-    } else if (option === "9") {
-      dataManipulated = dataManipulated.filter(
-        (el) => el.productCapacity === "9"
-      );
-    } else if (option === "10.5") {
-      dataManipulated = dataManipulated.filter(
-        (el) => el.productCapacity === "10.5"
-      );
-    }
-    setDataManipulation(dataManipulated);
+  const filtering = productInfo.filter((product) => {
+    const functionsFiltering =
+      dataManipulation.productFunctions === "all" ||
+      product.productFunctions.includes(dataManipulation.productFunctions);
+    const energyFiltering =
+      dataManipulation.energyLabel === "all" ||
+      product.energyLabel.includes(dataManipulation.energyLabel);
+    const capacityFiltering =
+      dataManipulation.productCapacity === "all" ||
+      product.productCapacity.includes(dataManipulation.productCapacity);
+    return functionsFiltering && energyFiltering && capacityFiltering;
+  });
 
-    // sorting products
-    if (option === "productPriceZl") {
-      dataManipulated.sort((a, b) => a.productPriceZl - b.productPriceZl);
-    } else if (option === "productCapacity") {
-      dataManipulated.sort((a, b) => a.productCapacity - b.productCapacity);
-    } else if (option === "productPopularity") {
-      dataManipulated
-        .sort((a, b) => a.productPopularity - b.productPopularity)
-        .reverse();
-    } else if (option === "id") {
-      dataManipulated.sort((a, b) => a.id - b.id);
-    }
-    setDataManipulation(dataManipulated);
-  }
+  // sorting 
+  const sortingByPrice = () =>
+    setDataManipulation({ ...dataManipulation, sorting: "productPriceZl" });
+  const sortingByCapacity = () =>
+    setDataManipulation({ ...dataManipulation, sorting: "productCapacity" });
+  const sortingByPopularity = () =>
+    setDataManipulation({ ...dataManipulation, sorting: "productPopularity" });
+  const sortingById = () =>
+    setDataManipulation({ ...dataManipulation, sorting: "id" });
 
+  const sortItems = filtering.sort((a, b) => {
+    if (dataManipulation.sorting === "productPriceZl")
+      return a.productPriceZl - b.productPriceZl;
+    if (dataManipulation.sorting === "productCapacity")
+      return a.productCapacity - b.productCapacity;
+    if (dataManipulation.sorting === "productPopularity")
+      return b.productPopularity - a.productPopularity;
+    if (dataManipulation.sorting === "id") return a.id - b.id;
+    return null;
+  });
+
+// searching
+const searchingProducts = (e) => setSearch(e.target.value)
+
+const searchedProducts = sortItems.filter(product => 
+(product.productName.toLowerCase().includes(search.toLowerCase()))
+|| (product.productFunctions.toLowerCase().includes(search.toLowerCase()))
+)
+
+  // UI 
   return (
     <>
-      <TopPannel />
-      <SelectionList onManipulateData={manipulating} />
+      <TopPannel onSearchingProducts={searchingProducts} search={search}/>
+      <SelectionList
+        onFunctionsFilter={functionsFilter}
+        onEnergyFilter={energyFilter}
+        onCapacityFilter={capacityFilter}
+        onSortingByPrice={sortingByPrice}
+        onSortingByCapacity={sortingByCapacity}
+        onSortingByPopularity={sortingByPopularity}
+        onSortingById={sortingById}
+      />
       <p style={{ fontSize: "14px", marginLeft: "15vw", marginTop: "150px" }}>
-        Liczba wyników: {productInfo.length}
+        Liczba wyników: {searchedProducts.length}
       </p>
       <ul className="products">
-        {dataManipulation.map((_, i) => (
-          <Product {...dataManipulation[i]} key={i} />
+        {searchedProducts.slice(0, pagination).map((e, i) => (
+          <Product {...e} key={i} />
         ))}
       </ul>
-      <button id="showMore">
-        <p>Pokaż więcej</p>
-        <RxTriangleDown />
-      </button>
+      <PaginationButton
+        setPagination={setPagination}
+        searchedProducts={searchedProducts}
+        pagination={pagination}
+      />
     </>
   );
 }

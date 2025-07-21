@@ -1,5 +1,5 @@
 .products {
-  width: 90vw;
+  width: 90%;
   margin-left: auto;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -84,7 +84,7 @@
   height: 36px;
   text-align: center;
   color: white;
-  background-color: #1428A0;
+  background-color: #1428a0;
   border-radius: 50px;
   border: none;
   font-size: 14px;
@@ -96,21 +96,4 @@
 }
 .products .selected {
   background-color: black;
-}
-
-#showMore {
-  position: relative;
-  margin-left: 50%;
-  transform: translateX(-50%);
-  margin-top: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: none;
-  color: #007AFF;
-  font-size: 18px;
-  font-weight: bold;
-}
-#showMore:hover {
-  cursor: pointer;
 }/*# sourceMappingURL=productItems.css.map */

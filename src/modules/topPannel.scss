@@ -1,22 +1,31 @@
-#selectDevice{
-    text-align: center;
-    font-size: 40px;
+#selectDevice {
+  text-align: center;
+  font-size: 40px;
 }
 
-#searchBox{
-    margin-left: 50%;
-    transform: translateX(-60%);
-    font-weight:lighter;
+#searchSection {
+  width: 23vh;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  #searchBox {
+    font-weight: lighter;
     border: none;
     width: 239px;
     font-size: 14px;
     padding: 8px 12px;
-    &:focus{
-        outline: 1px solid #007AFF;
-        border-radius: 5px;
+    &:focus {
+      outline: 1px solid #007aff;
+      border-radius: 5px;
     }
-    &::placeholder{
-        color: black;
+    &::placeholder {
+      color: black;
     }
+  }
+  button {
+    border: none;
+    &:hover {
+      cursor: pointer;
+    }
+  }
 }
-

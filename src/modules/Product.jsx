@@ -1,6 +1,5 @@
-import '../modules/productItems.css'
+import "../modules/productItems.css";
 import { useState } from "react";
-
 
 export default function Product({
   image,
@@ -8,55 +7,80 @@ export default function Product({
   productCapacity,
   productDimensions,
   productFunctions,
-  EnergyLabel,
+  energyLabel,
   productPriceDate,
   productPriceZl,
   productPriceGr,
   productPriceInstallments,
 }) {
-const [selected, setSelected] = useState(false)
-function selecting(){
-  setSelected(!selected)
+  // button for selecting products
+  const [selected, setSelected] = useState(false);
+  function selecting() {
+    setSelected(!selected);
+  }
 
-}
-const switchProductCapacity = productCapacity.replace('.', ',')
+  // change punctuation mark from data
+  const switchProductCapacity = productCapacity.replace(".", ",");
+
   return (
+    // product card
+    // product name and image
     <li className="productItem">
-      <img src={image} alt={productName} id='productImage'/>
+      <img src={image} alt={productName} id="productImage" />
       <span>
-        <h2 id='productName'>{productName}</h2>
+        <h2 id="productName">{productName}</h2>
       </span>
-      <div className='descriptionLine'>
-        <p className='descriptionTitle'>Pojemność (kg):</p>
-        <p className='descriptionValue'>{switchProductCapacity}</p>
+      {/* product description */}
+      {/* product capacity */}
+      <div className="descriptionLine">
+        <p className="descriptionTitle">Pojemność (kg):</p>
+        <p className="descriptionValue">{switchProductCapacity}</p>
       </div>
-      <div className='descriptionLine'>
-        <p className='descriptionTitle'>Wymiary (GxSxW):</p>
-        <p className='descriptionValue'>{productDimensions}</p>
+      {/* product dimensions */}
+      <div className="descriptionLine">
+        <p className="descriptionTitle">Wymiary (GxSxW):</p>
+        <p className="descriptionValue">{productDimensions}</p>
       </div>
-      <div className='descriptionLine'>
-        
-        <p className='descriptionValue' id='functionsValue'><p className='descriptionTitle' id='functionsTitle'>Funkcje:</p>{productFunctions}</p>
+      {/* product functions */}
+      <div className="descriptionLine">
+        <p className="descriptionValue" id="functionsValue">
+          <p className="descriptionTitle" id="functionsTitle">
+            Funkcje:
+          </p>
+          {productFunctions}
+        </p>
       </div>
-      <div className='descriptionLine' style={{margin: '15px 0'}}>
-        <p className='descriptionTitle' >Klasa energetyczna:</p>
-        <p className='descriptionValue' id='energyLabel'>{EnergyLabel}</p>
-        <div id='triangle'></div>
+      {/* energy label */}
+      <div className="descriptionLine" style={{ margin: "15px 0" }}>
+        <p className="descriptionTitle">Klasa energetyczna:</p>
+        <p className="descriptionValue" id="energyLabel">
+          {energyLabel}
+        </p>
+        <div id="triangle"></div>
       </div>
-      <div className='descriptionLine'>
-        <p className='descriptionTitle'>Cena obowiązuje: {productPriceDate}</p>
+      <div className="descriptionLine">
+        {/* current price date and amount */}
+        <p className="descriptionTitle">Cena obowiązuje: {productPriceDate}</p>
       </div>
-      <div id='price'>
-        <h1 id='productPriceZl'>{productPriceZl}</h1>
-        <div id='productPriceRightPanel'>
-          <p className='priceGr'>{productPriceGr}</p>
-          <p >zł</p>
+      <div id="price">
+        <h1 id="productPriceZl">{productPriceZl}</h1>
+        <div id="productPriceRightPanel">
+          <p className="priceGr">{productPriceGr}</p>
+          <p>zł</p>
         </div>
       </div>
-      <p id='installments'>{productPriceInstallments}</p>
-      {!selected && <button className='selectButton basic' onClick={selecting}>WYBIERZ</button>}
-      {selected && <button className='selectButton selected' onClick={selecting}>WYBRANE</button>}
-      
+      {/* button style switch */}
+      <p id="installments">{productPriceInstallments}</p>
+      {!selected && (
+        <button className="selectButton basic" onClick={selecting}>
+          WYBIERZ
+        </button>
+      )}
+      {selected && (
+        <button className="selectButton selected" onClick={selecting}>
+          WYBRANE
+        </button>
+      )}
     </li>
   );
 }

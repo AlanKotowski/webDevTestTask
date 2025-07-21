@@ -1,0 +1,22 @@
+#paginationButtons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 30vw;
+  margin-top: 20px;
+  margin-left: 50%;
+  transform: translate(-50%);
+}
+#paginationButtons .paginationButton {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  color: #007aff;
+  font-size: 18px;
+  font-weight: bold;
+}
+#paginationButtons .paginationButton:hover {
+  cursor: pointer;
+}/*# sourceMappingURL=paginationButton.css.map */
