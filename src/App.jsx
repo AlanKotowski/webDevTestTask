@@ -86,7 +86,7 @@ const searchedProducts = sortItems.filter(product =>
         onSortingByPopularity={sortingByPopularity}
         onSortingById={sortingById}
       />
-      <p style={{ fontSize: "14px", marginLeft: "15vw", marginTop: "150px" }}>
+      <p style={{ fontSize: "14px", marginLeft: "19vw", marginTop: "150px" }}>
         Liczba wyników: {searchedProducts.length}
       </p>
       <ul className="products">

@@ -1,10 +1,10 @@
 #inputsContainer {
   position: absolute;
-  width: 70vh;
+  width: 60%;
   margin-left: 50%;
   transform: translateX(-50%);
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  display: flex;
+  justify-content: space-between;
   z-index: 10;
   &h3 {
     font-size: 18px;
